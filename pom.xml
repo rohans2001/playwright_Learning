@@ -10,6 +10,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <playwright.version>1.61.0</playwright.version>
     <junit.version>5.13.4</junit.version>
+    <extent.version>5.1.2</extent.version>
   </properties>
   <dependencies>
     <dependency>
@@ -22,6 +23,11 @@
       <artifactId>junit-jupiter</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>${extent.version}</version>
     </dependency>
   </dependencies>
   <build>

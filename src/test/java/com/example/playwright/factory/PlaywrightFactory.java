@@ -3,6 +3,8 @@ package com.example.playwright.factory;
 import com.example.playwright.utils.ConfigReader;
 import com.microsoft.playwright.*;
 
+import java.util.Arrays;
+
 public class PlaywrightFactory {
     private static final ThreadLocal<Playwright> tlPlaywright = new ThreadLocal<>();
     private static final ThreadLocal<Browser> tlBrowser = new ThreadLocal<>();
@@ -17,7 +19,8 @@ public class PlaywrightFactory {
         tlPlaywright.set(playwright);
 
         BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions()
-                .setHeadless(isHeadless);
+                .setHeadless(isHeadless)
+                .setArgs(Arrays.asList("--disable-gpu", "--no-sandbox"));
 
         Browser browser;
         switch (browserName) {
