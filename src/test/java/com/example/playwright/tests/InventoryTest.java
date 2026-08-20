@@ -4,16 +4,23 @@ import com.example.playwright.base.BaseTest;
 import com.example.playwright.pages.InventoryPage;
 import com.example.playwright.pages.LoginPage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class InventoryTest extends BaseTest {
 
     @Test
+    @Order(1)
+    @Tag("Priority-High")
     @DisplayName("Should add products to cart and update cart badge count")
     void shouldAddProductsToCartAndUpdateBadge() {
         LoginPage loginPage = new LoginPage(page);
@@ -28,6 +35,8 @@ public class InventoryTest extends BaseTest {
     }
 
     @Test
+    @Order(2)
+    @Tag("Priority-Low")
     @DisplayName("Should sort products by price low to high")
     void shouldSortProductsByPriceLowToHigh() {
         LoginPage loginPage = new LoginPage(page);

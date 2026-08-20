@@ -6,13 +6,20 @@ import com.example.playwright.pages.CheckoutPage;
 import com.example.playwright.pages.InventoryPage;
 import com.example.playwright.pages.LoginPage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CheckoutTest extends BaseTest {
 
     @Test
+    @Order(1)
+    @Tag("Priority-High")
     @DisplayName("Should complete end-to-end checkout purchase workflow successfully")
     void shouldCompleteEndToEndCheckoutFlow() {
         // 1. Login

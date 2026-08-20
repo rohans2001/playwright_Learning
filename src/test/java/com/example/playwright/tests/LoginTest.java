@@ -4,13 +4,20 @@ import com.example.playwright.base.BaseTest;
 import com.example.playwright.pages.InventoryPage;
 import com.example.playwright.pages.LoginPage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LoginTest extends BaseTest {
 
     @Test
+    @Order(1)
+    @Tag("Priority-High")
     @DisplayName("Should login successfully with valid standard_user credentials")
     void shouldLoginSuccessfullyWithStandardUser() {
         LoginPage loginPage = new LoginPage(page);
@@ -22,6 +29,8 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @Order(2)
+    @Tag("Priority-Medium")
     @DisplayName("Should display error message when login fails with locked_out_user")
     void shouldShowErrorForLockedOutUser() {
         LoginPage loginPage = new LoginPage(page);
@@ -34,6 +43,8 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @Order(3)
+    @Tag("Priority-Medium")
     @DisplayName("Should display error message for invalid credentials")
     void shouldShowErrorForInvalidCredentials() {
         LoginPage loginPage = new LoginPage(page);

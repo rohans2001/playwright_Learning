@@ -17,6 +17,10 @@ public class TestListener implements TestWatcher, BeforeTestExecutionCallback, A
         String methodName = context.getDisplayName();
         ExtentTest test = ExtentManager.createTest(methodName, "Class: " + className);
         test.info("Starting test execution: " + methodName);
+
+        for (String tag : context.getTags()) {
+            test.assignCategory(tag);
+        }
     }
 
     @Override
