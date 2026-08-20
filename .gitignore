@@ -1,0 +1,23 @@
+# Target build directory
+target/
+
+# IDE files
+.idea/
+*.iml
+.settings/
+.classpath
+.project
+.vscode/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Playwright & Test reports
+test-results/
+playwright-report/
+blob-report/
+
+# OS generated files
+.DS_Store
+Thumbs.db
